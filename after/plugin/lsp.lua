@@ -1,3 +1,21 @@
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f1f28]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=#dcd7ba guibg=#1f1f28]]
+
+local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+}
+
+local handlers = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border}),
+}
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
@@ -75,6 +93,14 @@ require("lspconfig").rust_analyzer.setup({
     },
     on_attach = on_attach,
     capabilities = capabilities,
+    handlers = handlers,
 })
 
 require('fidget').setup({})
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or border
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
