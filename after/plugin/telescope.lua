@@ -23,3 +23,8 @@ vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, {})
 vim.keymap.set("n", "<leader>h", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>nt", "<cmd>tabnext<cr>", {})
+vim.keymap.set("n", "<leader>pt", "<cmd>tabprevious<cr>", {})
+require('telescope-tabs').setup({
+
+})

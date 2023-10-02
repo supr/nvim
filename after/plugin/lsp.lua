@@ -89,6 +89,21 @@ require("lspconfig").rust_analyzer.setup({
             diagnostic = {
                 enabled = true,
             }
+        },
+    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = handlers,
+})
+
+require("lspconfig").pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    maxLineLength = 120
+                }
+            }
         }
     },
     on_attach = on_attach,

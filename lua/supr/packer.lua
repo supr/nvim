@@ -7,6 +7,7 @@ return require("packer").startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim',
           run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
+    use { 'LukasPietzschmann/telescope-tabs', requires = { 'nvim-telescope/telescope.nvim' } }
     use { 'navarasu/onedark.nvim', as = 'onedark' }
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
     use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
