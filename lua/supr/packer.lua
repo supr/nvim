@@ -11,6 +11,8 @@ return require("packer").startup(function(use)
     use { 'navarasu/onedark.nvim', as = 'onedark' }
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
     use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
+    use { 'nvim-treesitter/nvim-treesitter-context' }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
     use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' }}
     use { 'numToStr/Comment.nvim' }
     use { 'folke/flash.nvim' }
