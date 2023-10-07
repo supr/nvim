@@ -25,6 +25,9 @@ return require("packer").startup(function(use)
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-nvim-lua' }
 
+    use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' }}
+    use { 'theHamsta/nvim-dap-virtual-text' }
+
     use { 'j-hui/fidget.nvim', tag = 'legacy' }
     use { 'junegunn/fzf' }
     use { 'junegunn/fzf.vim' }
